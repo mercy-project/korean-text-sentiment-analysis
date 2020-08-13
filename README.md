@@ -41,9 +41,9 @@ model = models.LanguageModel(model_name)
 
 text = [
     '안녕하세요 당신은 누구십니까?',
-    '전화번호좀 알려주세요',
+    '전화번호 좀 알려주세요',
     '담당자가 누구인가요?',
-    '같이 춤추실래요']
+    '같이 춤추실래요?']
 
 latent_list = []
 for t in text:
