@@ -1,9 +1,11 @@
 # korean-text-sentiment-analysis
+
 이 저장소는 [mercy-project](https://github.com/mercy-project)의 한 부분으로써 한국어를 이용한 딥러닝에 사용되는 것들을 다룹니다.
 
 ## Introduction
-* 이 프로젝트의 목적은 huggingface의 transformers 저장소를 사용하기 편하도록 wrapping하는 것입니다.
-* 또한 Pretrained Language Model(from huggingface)을 사용하여 간단하게 비슷한 의미를 가지는 문장을 찾을 수 있는 metric을 제공합니다.
+
+- 이 프로젝트의 목적은 huggingface의 transformers 저장소를 사용하기 편하도록 wrapping하는 것입니다.
+- 또한 Pretrained Language Model(from huggingface)을 사용하여 간단하게 비슷한 의미를 가지는 문장을 찾을 수 있는 metric을 제공합니다.
 
 ## Dependency
 
@@ -21,12 +23,14 @@ git clone https://github.com/mercy-project/korean-text-sentiment-analysis
 
 cd korean-text-sentiment-analysis
 
-pip install .
+sudo python3 -m pip install .
+
+pip3 install -r requirements.txt
 ```
 
 ## Quick start
 
-* how to get similar text with latent vector
+- how to get similar text with latent vector
 
 ```python
 from mercy_transformer import models
@@ -67,7 +71,26 @@ distance = metric.cosine(latent_list, [latent])
 print(distance)
 ```
 
-* classfication
+To Run
+
+```
+python3 smilar.py
+```
+
+Result
+
+```
+[[4.17170231]
+ [6.63776399]
+ [4.8249083 ]
+ [5.71683576]]
+[[0.07849896]
+ [0.20911893]
+ [0.11204922]
+ [0.15967475]]
+```
+
+- classfication
 
 ```python
 from mercy_transformer import models
@@ -136,7 +159,28 @@ for epoch in range(10):
         print(epoch, step, loss.item(), acc)
 ```
 
-* paired question
+To Run
+
+```
+python3 classfication.py
+```
+
+Result
+
+```
+0 0 0.737722635269165 0.3333333333333333
+1 0 0.6059796810150146 0.6666666666666666
+2 0 0.4729032516479492 0.7777777777777778
+3 0 0.3866463899612427 0.8888888888888888
+4 0 0.24941475689411163 1.0
+5 0 0.1359175443649292 1.0
+6 0 0.06440091878175735 1.0
+7 0 0.027132326737046242 1.0
+8 0 0.008938517421483994 1.0
+9 0 0.0025468349922448397 1.0
+```
+
+- paired question
 
 ```python
 from mercy_transformer import models
@@ -207,6 +251,37 @@ for epoch in range(20):
         acc = pred.eq(labels).sum().item() / ids1.shape[0]
 
         print(epoch, step, loss.item(), acc)
+```
+
+To Run
+
+```
+python3 paired_question.py
+```
+
+Result
+
+```
+0 0 0.7150420546531677 0.5
+1 0 0.8219130039215088 0.5
+2 0 0.8126139640808105 0.5
+3 0 0.6669130325317383 0.6666666666666666
+4 0 0.6324862837791443 0.6666666666666666
+5 0 0.5813004970550537 1.0
+6 0 0.45990419387817383 1.0
+7 0 0.28030848503112793 1.0
+8 0 0.1331692934036255 1.0
+9 0 0.06911587715148926 1.0
+10 0 0.030566172674298286 1.0
+11 0 0.015069677494466305 1.0
+12 0 0.008203997276723385 1.0
+13 0 0.004712474066764116 1.0
+14 0 0.0029395369347184896 1.0
+15 0 0.0020999612752348185 1.0
+16 0 0.001615511137060821 1.0
+17 0 0.0012224833481013775 1.0
+18 0 0.0008657379657961428 1.0
+19 0 0.0006126383086666465 1.0
 ```
 
 ## Todo List
