@@ -6,7 +6,7 @@ setup_requires = [
 install_requires = [
     'torch==1.5.1',
     'torchvision==0.6.1',
-    'transformers==2.11.0',
+    'transformers==4.30.0',
     'scipy==1.5.0']
 
 setup(
