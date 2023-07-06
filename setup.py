@@ -7,7 +7,7 @@ install_requires = [
     'torch==1.5.1',
     'torchvision==0.6.1',
     'transformers==2.11.0',
-    'scipy==1.5.0']
+    'scipy==1.10.0']
 
 setup(
     name='mercy_transformer',
